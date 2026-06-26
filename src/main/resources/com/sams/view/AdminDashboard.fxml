@@ -13,7 +13,7 @@
 
     <Label fx:id="welcomeLabel" style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-background-color: #EBF0F5;" text="Welcome, Admin" />
 
-    <Label style="-fx-background-color: #89aba9;" text="Admin Dashboard" />
+    <Label style="-fx-background-color: #89aba9; -fx-font-weight: bold;" text="Admin Dashboard" />
 
     <Button onAction="#handleCourseManagement" style="-fx-background-color: #32a852;" text="Course Management" />
 
