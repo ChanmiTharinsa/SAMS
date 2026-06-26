@@ -9,41 +9,38 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.ColumnConstraints?>
 
-
-<BorderPane prefWidth="900.0" prefHeight="680.0"
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.sams.controller.ClassSchedulingController">
+<BorderPane prefHeight="680.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sams.controller.ClassSchedulingController">
 
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f4f4f4;">
+        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f29b8a;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="15.0" left="20.0"/>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
             </padding>
-            <Button text="&lt; Back" onAction="#handleBack"/>
-            <Label text="Class Scheduling" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Button onAction="#handleBack" text="&lt; Back" />
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Class Scheduling" />
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="10.0">
+        <VBox spacing="10.0" style="-fx-background-color: #f73531;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="10.0" left="20.0"/>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
             </padding>
 
-            <TableView fx:id="sessionTable" prefHeight="260.0">
+            <TableView fx:id="sessionTable" prefHeight="333.0" prefWidth="860.0">
                 <columns>
-                    <TableColumn fx:id="colDate" text="Date" prefWidth="90.0"/>
-                    <TableColumn fx:id="colSubject" text="Subject" prefWidth="180.0"/>
-                    <TableColumn fx:id="colLecturer" text="Lecturer" prefWidth="140.0"/>
-                    <TableColumn fx:id="colStart" text="Start" prefWidth="70.0"/>
-                    <TableColumn fx:id="colEnd" text="End" prefWidth="70.0"/>
-                    <TableColumn fx:id="colVenue" text="Venue" prefWidth="120.0"/>
+                    <TableColumn fx:id="colDate" prefWidth="90.0" text="Date" />
+                    <TableColumn fx:id="colSubject" prefWidth="180.0" text="Subject" />
+                    <TableColumn fx:id="colLecturer" prefWidth="140.0" text="Lecturer" />
+                    <TableColumn fx:id="colStart" prefWidth="70.0" text="Start" />
+                    <TableColumn fx:id="colEnd" prefWidth="70.0" text="End" />
+                    <TableColumn fx:id="colVenue" prefWidth="120.0" text="Venue" />
                 </columns>
             </TableView>
 
@@ -51,62 +48,57 @@
     </center>
 
     <bottom>
-        <VBox spacing="10.0" style="-fx-background-color: #fafafa; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
+        <VBox spacing="10.0" style="-fx-background-color: #f29b8a; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="20.0" left="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
             </padding>
 
-            <Label fx:id="formMessageLabel" style="-fx-text-fill: red;"/>
+            <Label fx:id="formMessageLabel" style="-fx-text-fill: red;" />
 
-            <Label text="(Time format: HH:MM e.g. 09:00 or 14:30)"
-                   style="-fx-text-fill: #888888; -fx-font-size: 11px;"/>
+            <Label style="-fx-text-fill: #000000; -fx-font-size: 11px; -fx-font-weight: bold;" text="(Time format: HH:MM e.g. 09:00 or 14:30)" />
 
             <GridPane hgap="10.0" vgap="10.0">
                 <columnConstraints>
-                    <ColumnConstraints percentWidth="15"/>
-                    <ColumnConstraints percentWidth="35"/>
-                    <ColumnConstraints percentWidth="15"/>
-                    <ColumnConstraints percentWidth="35"/>
+                    <ColumnConstraints percentWidth="15" />
+                    <ColumnConstraints percentWidth="35" />
+                    <ColumnConstraints percentWidth="15" />
+                    <ColumnConstraints percentWidth="35" />
                 </columnConstraints>
 
-                <Label text="Subject:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <ComboBox fx:id="subjectComboBox" maxWidth="Infinity"
-                          GridPane.rowIndex="0" GridPane.columnIndex="1"
-                          GridPane.columnSpan="3"/>
+                <Label text="Subject:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <ComboBox fx:id="subjectComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="0" />
 
-                <Label text="Lecturer:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <ComboBox fx:id="lecturerComboBox" maxWidth="Infinity"
-                          GridPane.rowIndex="1" GridPane.columnIndex="1"
-                          GridPane.columnSpan="3"/>
+                <Label text="Lecturer:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <ComboBox fx:id="lecturerComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="1" />
 
-                <Label text="Date:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <DatePicker fx:id="sessionDatePicker"
-                            GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Date:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <DatePicker fx:id="sessionDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Venue:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
-                <TextField fx:id="venueField"
-                           GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+                <Label text="Venue:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <TextField fx:id="venueField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
 
-                <Label text="Start Time:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                <TextField fx:id="startTimeField" promptText="09:00"
-                           GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+                <Label text="Start Time:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <TextField fx:id="startTimeField" promptText="09:00" GridPane.columnIndex="1" GridPane.rowIndex="3" />
 
-                <Label text="End Time:" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
-                <TextField fx:id="endTimeField" promptText="11:00"
-                           GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+                <Label text="End Time:" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                <TextField fx:id="endTimeField" promptText="11:00" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
 
             </GridPane>
 
-            <HBox spacing="10.0" alignment="CENTER_RIGHT">
-                <Button text="Schedule Session" onAction="#handleAdd"/>
-                <Button text="Update Selected" onAction="#handleUpdate"/>
-                <Button text="Delete Selected" onAction="#handleDelete"/>
-                <Button text="Clear Form" onAction="#handleClear"/>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Button onAction="#handleAdd" text="Schedule Session" />
+                <Button onAction="#handleUpdate" text="Update Selected" />
+                <Button onAction="#handleDelete" text="Delete Selected" />
+                <Button onAction="#handleClear" text="Clear Form" />
             </HBox>
 
         </VBox>
     </bottom>
 
 </BorderPane>
-
-

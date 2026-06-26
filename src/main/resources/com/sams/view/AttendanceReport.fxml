@@ -8,81 +8,75 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.ColumnConstraints?>
 
-
-<BorderPane prefWidth="950.0" prefHeight="700.0"
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.sams.controller.AttendanceReportController">
+<BorderPane prefHeight="700.0" prefWidth="950.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sams.controller.AttendanceReportController">
 
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f4f4f4;">
+        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #9ef7ee;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="15.0" left="20.0"/>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
             </padding>
-            <Button text="&lt; Back" onAction="#handleBack"/>
-            <Label text="Attendance Reports" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Button onAction="#handleBack" text="&lt; Back" />
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Attendance Reports" />
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="12.0">
+        <VBox spacing="12.0" style="-fx-background-color: #31f7ed;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="10.0" left="20.0"/>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
             </padding>
 
             <!-- Filter panel -->
-            <Label text="Filter Options:" style="-fx-font-weight: bold;"/>
+            <Label style="-fx-font-weight: bold;" text="Filter Options:" />
 
             <GridPane hgap="10.0" vgap="10.0">
                 <columnConstraints>
-                    <ColumnConstraints percentWidth="12"/>
-                    <ColumnConstraints percentWidth="38"/>
-                    <ColumnConstraints percentWidth="12"/>
-                    <ColumnConstraints percentWidth="38"/>
+                    <ColumnConstraints percentWidth="12" />
+                    <ColumnConstraints percentWidth="38" />
+                    <ColumnConstraints percentWidth="12" />
+                    <ColumnConstraints percentWidth="38" />
                 </columnConstraints>
 
-                <Label text="Student:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <ComboBox fx:id="studentComboBox" maxWidth="Infinity"
-                          promptText="All Students"
-                          GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Student:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <ComboBox fx:id="studentComboBox" maxWidth="Infinity" promptText="All Students" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label text="Subject:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-                <ComboBox fx:id="subjectComboBox" maxWidth="Infinity"
-                          promptText="All Subjects"
-                          GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                <Label text="Subject:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <ComboBox fx:id="subjectComboBox" maxWidth="Infinity" promptText="All Subjects" GridPane.columnIndex="3" GridPane.rowIndex="0" />
 
-                <Label text="From Date:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <DatePicker fx:id="fromDatePicker"
-                            GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="From Date:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <DatePicker fx:id="fromDatePicker" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="To Date:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
-                <DatePicker fx:id="toDatePicker"
-                            GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                <Label text="To Date:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <DatePicker fx:id="toDatePicker" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
             </GridPane>
 
             <HBox spacing="10.0">
-                <Button text="Generate Report" onAction="#handleGenerate"
-                        style="-fx-font-weight: bold;"/>
-                <Button text="Clear Filters" onAction="#handleClear"/>
+                <Button onAction="#handleGenerate" style="-fx-font-weight: bold;" text="Generate Report" />
+                <Button onAction="#handleClear" text="Clear Filters" />
             </HBox>
 
-            <Label fx:id="filterMessageLabel" style="-fx-text-fill: red;"/>
+            <Label fx:id="filterMessageLabel" style="-fx-text-fill: red;" />
 
             <!-- Results table -->
             <TableView fx:id="reportTable" prefHeight="350.0">
                 <columns>
-                    <TableColumn fx:id="colDate" text="Date" prefWidth="90.0"/>
-                    <TableColumn fx:id="colRegNumber" text="Reg No." prefWidth="90.0"/>
-                    <TableColumn fx:id="colStudentName" text="Student" prefWidth="150.0"/>
-                    <TableColumn fx:id="colCourse" text="Course" prefWidth="120.0"/>
-                    <TableColumn fx:id="colSubject" text="Subject" prefWidth="150.0"/>
-                    <TableColumn fx:id="colStatus" text="Status" prefWidth="80.0"/>
-                    <TableColumn fx:id="colLecturer" text="Lecturer" prefWidth="130.0"/>
+                    <TableColumn fx:id="colDate" prefWidth="90.0" text="Date" />
+                    <TableColumn fx:id="colRegNumber" prefWidth="90.0" text="Reg No." />
+                    <TableColumn fx:id="colStudentName" prefWidth="150.0" text="Student" />
+                    <TableColumn fx:id="colCourse" prefWidth="120.0" text="Course" />
+                    <TableColumn fx:id="colSubject" prefWidth="150.0" text="Subject" />
+                    <TableColumn fx:id="colStatus" prefWidth="80.0" text="Status" />
+                    <TableColumn fx:id="colLecturer" prefWidth="130.0" text="Lecturer" />
                 </columns>
             </TableView>
 
@@ -90,14 +84,12 @@
     </center>
 
     <bottom>
-        <HBox spacing="20.0" style="-fx-background-color: #f4f4f4; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
+        <HBox spacing="20.0" style="-fx-background-color: #9ef7ee; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
             <padding>
-                <Insets top="10.0" right="20.0" bottom="10.0" left="20.0"/>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
             </padding>
-            <Label fx:id="summaryLabel" text="Generate a report to see results."
-                   style="-fx-font-weight: bold;"/>
+            <Label fx:id="summaryLabel" style="-fx-font-weight: bold;" text="Generate a report to see results." />
         </HBox>
     </bottom>
 
 </BorderPane>
-

@@ -9,51 +9,45 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
-<BorderPane prefWidth="850.0" prefHeight="700.0"
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.sams.controller.AttendanceMarkingController">
+<BorderPane prefHeight="700.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sams.controller.AttendanceMarkingController">
 
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f4f4f4;">
+        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #b5a5c2;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="15.0" left="20.0"/>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
             </padding>
-            <Button text="&lt; Back" onAction="#handleBack"/>
-            <Label text="Attendance Marking" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Button onAction="#handleBack" text="&lt; Back" />
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Attendance Marking" />
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="10.0">
+        <VBox spacing="10.0" style="-fx-background-color: #af31f7;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="10.0" left="20.0"/>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
             </padding>
 
             <!-- Upper: session list -->
-            <Label text="Select a session to mark attendance:"
-                   style="-fx-font-weight: bold;"/>
+            <Label style="-fx-font-weight: bold;" text="Select a session to mark attendance:" />
 
             <TableView fx:id="sessionTable" prefHeight="200.0">
                 <columns>
-                    <TableColumn fx:id="colDate" text="Date" prefWidth="90.0"/>
-                    <TableColumn fx:id="colSubject" text="Subject" prefWidth="200.0"/>
-                    <TableColumn fx:id="colStart" text="Start" prefWidth="70.0"/>
-                    <TableColumn fx:id="colEnd" text="End" prefWidth="70.0"/>
-                    <TableColumn fx:id="colVenue" text="Venue" prefWidth="120.0"/>
+                    <TableColumn fx:id="colDate" prefWidth="90.0" text="Date" />
+                    <TableColumn fx:id="colSubject" prefWidth="200.0" text="Subject" />
+                    <TableColumn fx:id="colStart" prefWidth="70.0" text="Start" />
+                    <TableColumn fx:id="colEnd" prefWidth="70.0" text="End" />
+                    <TableColumn fx:id="colVenue" prefWidth="120.0" text="Venue" />
                 </columns>
             </TableView>
 
             <!-- Lower: attendance marking table -->
-            <Label fx:id="sessionInfoLabel" text="(select a session above)"
-                   style="-fx-text-fill: #555555;"/>
+            <Label fx:id="sessionInfoLabel" style="-fx-text-fill: #555555; -fx-font-weight: bold;" text="(select a session above)" />
 
             <TableView fx:id="attendanceTable" prefHeight="220.0">
                 <columns>
-                    <TableColumn fx:id="colRegNumber" text="Reg Number" prefWidth="120.0"/>
-                    <TableColumn fx:id="colStudentName" text="Student Name" prefWidth="200.0"/>
-                    <TableColumn fx:id="colStatus" text="Status" prefWidth="150.0"/>
+                    <TableColumn fx:id="colRegNumber" prefWidth="120.0" text="Reg Number" />
+                    <TableColumn fx:id="colStudentName" prefWidth="200.0" text="Student Name" />
+                    <TableColumn fx:id="colStatus" prefWidth="150.0" text="Status" />
                 </columns>
             </TableView>
 
@@ -61,20 +55,17 @@
     </center>
 
     <bottom>
-        <VBox spacing="8.0" style="-fx-background-color: #fafafa; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
+        <VBox spacing="8.0" style="-fx-background-color: #b5a5c2; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
             <padding>
-                <Insets top="12.0" right="20.0" bottom="15.0" left="20.0"/>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="12.0" />
             </padding>
 
-            <Label fx:id="messageLabel" style="-fx-text-fill: green;"/>
+            <Label fx:id="messageLabel" style="-fx-text-fill: green;" />
 
-            <HBox spacing="10.0" alignment="CENTER_RIGHT">
-                <Button text="Save Attendance" onAction="#handleSave"
-                        style="-fx-font-weight: bold;"/>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Button onAction="#handleSave" style="-fx-font-weight: bold;" text="Save Attendance" />
             </HBox>
         </VBox>
     </bottom>
 
 </BorderPane>
-
-

@@ -8,41 +8,38 @@
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.ColumnConstraints?>
 
-
-<BorderPane prefWidth="850.0" prefHeight="650.0"
-            xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="com.sams.controller.StudentManagementController">
+<BorderPane prefHeight="650.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/26" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.sams.controller.StudentManagementController">
 
     <top>
-        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f4f4f4;">
+        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #5397f5;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="15.0" left="20.0"/>
+                <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
             </padding>
-            <Button text="&lt; Back" onAction="#handleBack"/>
-            <Label text="Student Management" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+            <Button onAction="#handleBack" text="&lt; Back" />
+            <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Student Management" />
         </HBox>
     </top>
 
     <center>
-        <VBox spacing="10.0">
+        <VBox spacing="10.0" style="-fx-background-color: #327ba8;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="10.0" left="20.0"/>
+                <Insets bottom="10.0" left="20.0" right="20.0" top="15.0" />
             </padding>
 
             <TableView fx:id="studentTable" prefHeight="280.0">
                 <columns>
-                    <TableColumn fx:id="colRegNumber" text="Reg Number" prefWidth="100.0"/>
-                    <TableColumn fx:id="colFirstName" text="First Name" prefWidth="110.0"/>
-                    <TableColumn fx:id="colLastName" text="Last Name" prefWidth="110.0"/>
-                    <TableColumn fx:id="colEmail" text="Email" prefWidth="180.0"/>
-                    <TableColumn fx:id="colCourse" text="Course" prefWidth="150.0"/>
-                    <TableColumn fx:id="colYear" text="Year" prefWidth="70.0"/>
+                    <TableColumn fx:id="colRegNumber" prefWidth="100.0" text="Reg Number" />
+                    <TableColumn fx:id="colFirstName" prefWidth="110.0" text="First Name" />
+                    <TableColumn fx:id="colLastName" prefWidth="110.0" text="Last Name" />
+                    <TableColumn fx:id="colEmail" prefWidth="180.0" text="Email" />
+                    <TableColumn fx:id="colCourse" prefWidth="150.0" text="Course" />
+                    <TableColumn fx:id="colYear" prefWidth="70.0" text="Year" />
                 </columns>
             </TableView>
 
@@ -50,54 +47,57 @@
     </center>
 
     <bottom>
-        <VBox spacing="10.0" style="-fx-background-color: #fafafa; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
+        <VBox spacing="10.0" style="-fx-background-color: #5397f5; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
             <padding>
-                <Insets top="15.0" right="20.0" bottom="20.0" left="20.0"/>
+                <Insets bottom="20.0" left="20.0" right="20.0" top="15.0" />
             </padding>
 
-            <Label fx:id="formMessageLabel" style="-fx-text-fill: red;"/>
+            <Label fx:id="formMessageLabel" style="-fx-text-fill: red;" />
 
             <GridPane hgap="10.0" vgap="10.0">
                 <columnConstraints>
-                    <ColumnConstraints percentWidth="15"/>
-                    <ColumnConstraints percentWidth="35"/>
-                    <ColumnConstraints percentWidth="15"/>
-                    <ColumnConstraints percentWidth="35"/>
+                    <ColumnConstraints percentWidth="15" />
+                    <ColumnConstraints percentWidth="35" />
+                    <ColumnConstraints percentWidth="15" />
+                    <ColumnConstraints percentWidth="35" />
                 </columnConstraints>
 
-                <Label text="Reg Number:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-                <TextField fx:id="regNumberField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+                <Label text="Reg Number:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                <TextField fx:id="regNumberField" GridPane.columnIndex="1" GridPane.rowIndex="0" />
 
-                <Label text="Enrolled Year:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
-                <TextField fx:id="enrolledYearField" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+                <Label text="Enrolled Year:" GridPane.columnIndex="2" GridPane.rowIndex="0" />
+                <TextField fx:id="enrolledYearField" GridPane.columnIndex="3" GridPane.rowIndex="0" />
 
-                <Label text="First Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
-                <TextField fx:id="firstNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+                <Label text="First Name:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                <TextField fx:id="firstNameField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
-                <Label text="Last Name:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
-                <TextField fx:id="lastNameField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+                <Label text="Last Name:" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                <TextField fx:id="lastNameField" GridPane.columnIndex="3" GridPane.rowIndex="1" />
 
-                <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
-                <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+                <Label text="Email:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+                <TextField fx:id="emailField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
 
-                <Label text="Phone:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
-                <TextField fx:id="phoneField" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+                <Label text="Phone:" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                <TextField fx:id="phoneField" GridPane.columnIndex="3" GridPane.rowIndex="2" />
 
-                <Label text="Course:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
-                <ComboBox fx:id="courseComboBox" GridPane.rowIndex="3" GridPane.columnIndex="1"
-                          GridPane.columnSpan="3" maxWidth="Infinity"/>
+                <Label text="Course:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+                <ComboBox fx:id="courseComboBox" maxWidth="Infinity" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="3" />
+            <rowConstraints>
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+               <RowConstraints />
+            </rowConstraints>
             </GridPane>
 
-            <HBox spacing="10.0" alignment="CENTER_RIGHT">
-                <Button fx:id="addButton" text="Add Student" onAction="#handleAdd"/>
-                <Button fx:id="updateButton" text="Update Selected" onAction="#handleUpdate"/>
-                <Button fx:id="deleteButton" text="Delete Selected" onAction="#handleDelete"/>
-                <Button fx:id="clearButton" text="Clear Form" onAction="#handleClear"/>
+            <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                <Button fx:id="addButton" onAction="#handleAdd" text="Add Student" />
+                <Button fx:id="updateButton" onAction="#handleUpdate" text="Update Selected" />
+                <Button fx:id="deleteButton" onAction="#handleDelete" text="Delete Selected" />
+                <Button fx:id="clearButton" onAction="#handleClear" text="Clear Form" />
             </HBox>
 
         </VBox>
     </bottom>
 
 </BorderPane>
-
-
