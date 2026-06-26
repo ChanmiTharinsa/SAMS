@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+
+
+<BorderPane prefWidth="900.0" prefHeight="680.0"
+            xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="com.sams.controller.LecturerManagementController">
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="15.0" style="-fx-background-color: #f4f4f4;">
+            <padding>
+                <Insets top="15.0" right="20.0" bottom="15.0" left="20.0"/>
+            </padding>
+            <Button text="&lt; Back" onAction="#handleBack"/>
+            <Label text="Lecturer Management" style="-fx-font-size: 20px; -fx-font-weight: bold;"/>
+        </HBox>
+    </top>
+
+    <center>
+        <VBox spacing="10.0">
+            <padding>
+                <Insets top="15.0" right="20.0" bottom="10.0" left="20.0"/>
+            </padding>
+
+            <TableView fx:id="lecturerTable" prefHeight="260.0">
+                <columns>
+                    <TableColumn fx:id="colEmpCode" text="Emp Code" prefWidth="90.0"/>
+                    <TableColumn fx:id="colFirstName" text="First Name" prefWidth="110.0"/>
+                    <TableColumn fx:id="colLastName" text="Last Name" prefWidth="110.0"/>
+                    <TableColumn fx:id="colEmail" text="Email" prefWidth="180.0"/>
+                    <TableColumn fx:id="colDepartment" text="Department" prefWidth="150.0"/>
+                    <TableColumn fx:id="colUsername" text="Username" prefWidth="100.0"/>
+                </columns>
+            </TableView>
+
+        </VBox>
+    </center>
+
+    <bottom>
+        <VBox spacing="10.0" style="-fx-background-color: #fafafa; -fx-border-color: #dddddd; -fx-border-width: 1 0 0 0;">
+            <padding>
+                <Insets top="15.0" right="20.0" bottom="20.0" left="20.0"/>
+            </padding>
+
+            <Label fx:id="formMessageLabel" style="-fx-text-fill: red;"/>
+
+            <Label text="(Username and Password only needed when adding a new lecturer)"
+                   style="-fx-text-fill: #888888; -fx-font-size: 11px;"/>
+
+            <GridPane hgap="10.0" vgap="10.0">
+                <columnConstraints>
+                    <ColumnConstraints percentWidth="15"/>
+                    <ColumnConstraints percentWidth="35"/>
+                    <ColumnConstraints percentWidth="15"/>
+                    <ColumnConstraints percentWidth="35"/>
+                </columnConstraints>
+
+                <Label text="Emp Code:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+                <TextField fx:id="empCodeField" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+                <Label text="Department:" GridPane.rowIndex="0" GridPane.columnIndex="2"/>
+                <TextField fx:id="departmentField" GridPane.rowIndex="0" GridPane.columnIndex="3"/>
+
+                <Label text="First Name:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+                <TextField fx:id="firstNameField" GridPane.rowIndex="1" GridPane.columnIndex="1"/>
+
+                <Label text="Last Name:" GridPane.rowIndex="1" GridPane.columnIndex="2"/>
+                <TextField fx:id="lastNameField" GridPane.rowIndex="1" GridPane.columnIndex="3"/>
+
+                <Label text="Email:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+                <TextField fx:id="emailField" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+                <Label text="Phone:" GridPane.rowIndex="2" GridPane.columnIndex="2"/>
+                <TextField fx:id="phoneField" GridPane.rowIndex="2" GridPane.columnIndex="3"/>
+
+                <Label text="Username:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+                <TextField fx:id="usernameField" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+                <Label text="Password:" GridPane.rowIndex="3" GridPane.columnIndex="2"/>
+                <PasswordField fx:id="passwordField" GridPane.rowIndex="3" GridPane.columnIndex="3"/>
+
+            </GridPane>
+
+            <HBox spacing="10.0" alignment="CENTER_RIGHT">
+                <Button text="Add Lecturer" onAction="#handleAdd"/>
+                <Button text="Update Selected" onAction="#handleUpdate"/>
+                <Button text="Delete Selected" onAction="#handleDelete"/>
+                <Button text="Clear Form" onAction="#handleClear"/>
+            </HBox>
+
+        </VBox>
+    </bottom>
+
+</BorderPane>
+
+
